@@ -103,6 +103,7 @@ footer {
 /* numbered buttons */
 #status-buttons{  }
 #status-buttons a{ 
+  padding: 0px 20px;
   color:#3b3a36;
 	display:inline-block; 
 	font-size:12px; 
