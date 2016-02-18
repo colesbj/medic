@@ -53,7 +53,7 @@ body {
 }
 
 a {
-  color: #b56969;
+  color:#800000;
 }
 
 button a span glyphicon{
@@ -78,6 +78,11 @@ footer {
   color:#800000;
 }
 
+.homePill {
+  width:100px;
+  height:100px;
+}
+
 
 /* medication form styling */
 #form-container{ 
@@ -87,8 +92,8 @@ footer {
     border-radius:5px; 
     color: #3b3a36;}
 #form-container .page-header   {
-	 background:#c2d4d8;
-	 color:#b56969; 
+	 background:#a8a8a8;
+   color:#800000;
 	 margin:0; 
 	 padding:5px; 
      border-top-left-radius:5px; 
@@ -98,7 +103,7 @@ footer {
 /* numbered buttons */
 #status-buttons{  }
 #status-buttons a{ 
-	color:#b56969;
+  color:#3b3a36;
 	display:inline-block; 
 	font-size:12px; 
 	margin-right:10px; 
@@ -110,18 +115,20 @@ footer {
 
 /* we will style the span as the circled number */
 #status-buttons span{ 
+  color:#800000;
 	background:#fff; 
 	display:block; 
 	height:30px; 
 	margin:0 
 	auto 10px; 
-	padding-top:5px; 
+	padding-top:7px; 
 	width:30px; 
     border-radius:50%; }
 
 /* active buttons turn light green-blue*/
 #status-buttons a.active span   { 
-	background:#e6cf8b; 
+	background:#800000;
+  color:#e9e9e9; 
 }
 
 #form-views             { 

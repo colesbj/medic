@@ -7,7 +7,8 @@ angular.module('autoMedic', [
   'mdo-angular-cryptography',
   'ui.bootstrap',
   'angular-virtual-keyboard',
-  'ds.clock'
+  'ds.clock',
+  'ngTable'
 ])
 
 .config(['VKI_CONFIG', function(VKI_CONFIG) {

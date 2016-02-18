@@ -1,5 +1,3 @@
-<a href ui-sref='home'>Go Back</a>
-
 <div class="unselectable">
 <h1>Medication History</h1>
 
@@ -7,11 +5,11 @@
 
 			<tr ng-repeat="log in dispensed | orderBy:'dateDispensed':true | filter:searchPill">
 
-				<td data-title="'Medication Name'" filter="{ 'pillName': 'text' }">
+				<td data-title="'Medication Name'" header-class="'text-left'" filter="{ 'pillName': 'text' }">
 					{{log.pillName}}</td>
-				<td data-title="'Pills Dispensed'" style="text-align: right;">
+				<td data-title="'Pills Dispensed'" header-class="'text-right'" style="text-align: right;">
 					{{log.dosage}}</td>
-				<td data-title="'Date Dispensed'"style="text-align: right;">
+				<td data-title="'Date Dispensed'" header-class="'text-right'" style="text-align: right;">
 					{{log.dateDispensed | date:"h:mma 'on' MMM d, y"}}</td>
 
 			</tr>
