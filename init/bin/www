@@ -1,0 +1,24 @@
+#!/usr/bin/env node
+var debug = require('debug')('init');
+var app = require('../app');
+// used for socket io
+var httpServer = require('http').createServer(app);
+var io = require('socket.io')(httpServer);
+
+var port = 3000;
+
+httpServer.listen(port);
+console.log('Server available at http://localhost:' + port); 
+
+//app.set('port', process.env.PORT || 3000);
+
+//var server = app.listen(app.get('port'), function() {
+//  debug('Express server listening on port ' + server.address().port);
+//});
+// io.on('connection',function(socket){
+// 	console.log(socket.id);
+// Handles Serial communications
+exports.io = io; 
+
+var serialHandler = require('../serial.js');
+

@@ -1,0 +1,26 @@
+<a href ui-sref='home'>Go Back</a>
+
+<div class="unselectable">
+<h1>Medication History</h1>
+
+	<table ng-table='historyTable' class='table table-striped'>
+
+			<tr ng-repeat="log in dispensed | orderBy:'dateDispensed':true | filter:searchPill">
+
+				<td data-title="'Medication Name'" filter="{ 'pillName': 'text' }">
+					{{log.pillName}}</td>
+				<td data-title="'Pills Dispensed'" style="text-align: right;">
+					{{log.dosage}}</td>
+				<td data-title="'Date Dispensed'"style="text-align: right;">
+					{{log.dateDispensed | date:"h:mma 'on' MMM d, y"}}</td>
+
+			</tr>
+
+			<tr>
+				<input type="text" class="form-control" placeholder="Search for Pill" ng-model="searchPill" ng-virtual-keyboard="{relative: false}"/> 
+			</tr>
+	</table>
+
+
+  <hr ng-if="!$last">
+</div>

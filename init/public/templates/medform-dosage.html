@@ -1,0 +1,34 @@
+<div class="form-group">
+    <label class="control-label col-xs-6">Number of Pills per Dose: </label>
+    <div class="col-xs-4">
+      <input type="number" 
+      class="form-control" 
+      placeholder="Dosage" 
+      ng-model="med.dosage"
+      ng-virtual-keyboard="{kt: 'Numerico'}"
+      >
+    </div>
+  </div>  
+
+<!--
+  <div>
+    <label>Number of Pills per Dose</label>
+    <input type="number"
+      placeholder="Dosage"
+      ng-model="med.dosage"
+      >
+  </div></br>
+-->
+</br>
+<div class="form-line">
+<div class="col-xs-4 col-xs-offset-2">
+    <a href ui-sref='medform.dispensinginfo' class="btn btn-block btn-default">
+    <span class="glyphicon glyphicon-circle-arrow-left"></span> Previous
+    </a>
+</div>
+<div class="col-xs-4 ">
+    <a href ui-sref='medform.startdate' class="btn btn-block btn-default">
+    Next Section <span class="glyphicon glyphicon-circle-arrow-right"></span>
+    </a>
+</div>
+</div>

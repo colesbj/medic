@@ -1,0 +1,133 @@
+body {
+  margin-top:45px;
+  margin-bottom:20px;
+  font-family-sans-serif: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  background:#f6f1ed;
+  color: #3b3a36 ;
+  height: 100%;
+}
+
+.navbar {
+    margin-bottom: 0;
+    background-color: #fff;
+    z-index: 10;
+    border: 0;
+    font-size: 12px !important;
+    line-height: 1.42857143 !important;
+    letter-spacing: 1px;
+    border-radius: 0;
+}
+
+.navbar li a, .navbar .navbar-brand {
+    color: #3b3a36 !important;
+}
+
+.navbar-nav li a:hover,.navbar-brand:hover, .navbar-nav li a.active,.navbar-brand.active {
+    color: #fff !important;
+    background-color: #3b3a36 !important;
+}
+
+.navbar-default .navbar-toggle {
+    border-color: transparent;
+    color: #3b3a36 !important;
+}
+
+.navbar-header .glyphicon{
+	color:#b56969;
+}
+
+.navbar-inv {
+  width: 100%;
+    text-align: center;
+    > li {
+      float: none;
+      display: inline-block;
+    }
+}
+
+.unselectable {
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  user-select: none; 
+}
+
+a {
+  color: #b56969;
+}
+
+button a span glyphicon{
+	color: #b56969; 
+
+}
+footer {
+    position: fixed;
+    right: 0;
+    left: 0;
+    bottom: 0;
+   
+    background-color: #fff;
+    text-align: center;
+    font-size: 12px;
+
+}
+
+.widget-clock.red-light .time {
+  font-family: 'Rationale', sans-serif;
+  font-size: 12px;
+  color:#800000;
+}
+
+
+/* medication form styling */
+#form-container{ 
+	background:#fff; 
+	margin-top:10px;
+	margin-bottom:10px;
+    border-radius:5px; 
+    color: #3b3a36;}
+#form-container .page-header   {
+	 background:#c2d4d8;
+	 color:#b56969; 
+	 margin:0; 
+	 padding:5px; 
+     border-top-left-radius:5px; 
+     border-top-right-radius:5px;
+     font-weight: bold; }
+ 
+/* numbered buttons */
+#status-buttons{  }
+#status-buttons a{ 
+	color:#b56969;
+	display:inline-block; 
+	font-size:12px; 
+	margin-right:10px; 
+	text-align:center; 
+	text-transform:uppercase; 
+ 	font-weight: bold;}
+#status-buttons a:hover{ 
+	text-decoration:none; }
+
+/* we will style the span as the circled number */
+#status-buttons span{ 
+	background:#fff; 
+	display:block; 
+	height:30px; 
+	margin:0 
+	auto 10px; 
+	padding-top:5px; 
+	width:30px; 
+    border-radius:50%; }
+
+/* active buttons turn light green-blue*/
+#status-buttons a.active span   { 
+	background:#e6cf8b; 
+}
+
+#form-views             { 
+	width:auto; }
+#med-form            { 
+	position:relative; 
+	min-height:250px; 
+	overflow:hidden; 
+	padding:30px; }

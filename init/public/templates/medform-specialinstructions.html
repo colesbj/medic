@@ -1,0 +1,66 @@
+<!--<h3>Special Instructions</h3>
+<div>
+	<label>
+    <input type="checkbox" ng-model="med.specialInstructions[0]" ng-true-value="'None'">
+    None
+  	</label><br/>
+    <label>
+    <input type="checkbox" ng-model="med.specialInstructions[1]" ng-true-value="'With Water'">
+    With Water
+    </label><br/>
+    <label>
+    <input type="checkbox" ng-model="med.specialInstructions[2]" ng-true-value="'Before a Meal'">
+    Before a Meal
+    </label><br/>
+    <label>
+    <input type="checkbox" ng-model="med.specialInstructions[3]" ng-true-value="'With a Meal'">
+    With a Meal
+    </label><br/>
+    <label>
+    <input type="checkbox" ng-model="med.specialInstructions[4]" ng-true-value="'After A Meal'">
+    After a Meal
+    </label><br/>
+    <label>
+    <input type="checkbox" ng-model="other" ng-true-value="'other'" ng-change="change()">
+    Other
+  </label><br/>
+  
+<div>-->
+
+<div class="row">
+<div class="text-center">
+<h3>Special Instructions</h3>
+
+</div>
+<div class="col-xs-4 col-xs-offset-4">
+  <p "text-left"> Click all that apply </p>  
+  <div class="btn-group-vertical">
+        <label class="btn btn-default" ng-model="med.specialInstructions[0]"  btn-checkbox-true="'None'"uib-btn-checkbox>None</label>
+        <label class="btn btn-default" ng-model="med.specialInstructions[1]" btn-checkbox-true="'With Water'" uib-btn-checkbox>With Water</label>
+        <label class="btn btn-default" ng-model="med.specialInstructions[2]" btn-checkbox-true="'Before a Meal'" uib-btn-checkbox>Before a Meal</label>
+        <label class="btn btn-default" ng-model="med.specialInstructions[3]" btn-checkbox-true="'With a Meal'" uib-btn-checkbox>With a Meal</label>
+        <label class="btn btn-default" ng-model="med.specialInstructions[4]" btn-checkbox-true="'After A Meal'" uib-btn-checkbox>After a Meal</label>
+        <label class="btn btn-default" ng-model="other" ng-change="change()" uib-btn-checkbox>Other</label>
+    </div>
+    <label ng-if="other">
+    <textarea class="form-control" rows="4" cols = "40" ng-model="med.specialInstructions[5]" ng-virtual-keyboard="{relative: false}"></textarea>
+  </label>
+  </div>
+  </div>
+  </div>
+
+<p>Selected Value: {{checkResults}}</p>
+<p>Selected Value: {{med.specialInstructions}}</p>
+<div class="form-line">
+<div class="col-xs-4 col-xs-offset-2">
+    <a href ui-sref='medform.startdate' class="btn btn-block btn-default">
+    <span class="glyphicon glyphicon-circle-arrow-left"></span> Previous
+    </a>
+</div>
+<div class="col-xs-4 ">
+    <a href ui-sref='medform.summary' class="btn btn-block btn-default">
+    Next Section <span class="glyphicon glyphicon-circle-arrow-right"></span>
+    </a>
+</div>
+</div>
+
