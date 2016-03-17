@@ -3,6 +3,8 @@ var Schema = mongoose.Schema;
 
 var PillSchema = new Schema({
 
+	userName: String,
+	notifyNumber: Number,
 	pillName: String, // generic or manufactures name
 	amount: Number, // current amount of pills
 	inventorySlot: Number, // where the pill is stored

@@ -1,72 +1,97 @@
-<div class="unselectable">
+<br>
+<div class="row">
+  <div class="col-xs-2 col-xs-offset-1">
+    <a href ui-sref='home'class="btn btn-block btn-default" > 
+      <i class="glyphicon glyphicon-home"></i>&nbsp;Go Back</a>
+    </div>
+ </div>
 
-  <h1>Inventory</h1>
-    <div ng-repeat="med in meds" class="slide"  ng-hide="!isCurrentMedIndex($index)">
 
-          <table ng-table='inventoryTable' class='table table-striped table-bordered'>
+  <h2 class="text-center">Inventory</h2>
+  <p class="text-center">Select the Medication Name Below</p>
 
-          <th style="visibility:hidden;"></th>
-          <tbody>
-              <tr>
-                <td><strong>Medication name</strong>: {{med.pillName}}</td>
-              </tr>
 
-              <tr>
-                <td><strong>User</strong>: {{med.userName}}</td>
-              </tr>
 
-              <tr>
-                <td><strong>Medication per dispense</strong>: {{med.dosage}}</td>
-              </tr>
 
-              <tr>
-                <td><strong>Amount remaining</strong>: {{med.amount}}</td>
-              </tr>
+  <div class="container">
 
-              <tr>
-                <td><strong>Last dispesed</strong>: {{med.lastDispensed | date:"MMM d, y h:mma"}}</td>
-              </tr>
 
-              <tr>
-                <td><strong>Instructions</strong>: {{med.specialInstructions}}</td>
-              </tr>
 
-              <tr>
-                <td style="text-align:center;">
-                  <a href style="text-decoration:none;" ng-click="dispenseMed(med, $index)">
-                    <span class="glyphicon glyphicon-glass"></span>
-                    Dispense Now
-                  </a>
-                </td>
-              </tr>
-
-              <tr>
-                <td style="text-align:center;">
-                  <a href style="text-decoration:none;" ng-click="deleteMed(med, $index)">
-                    <span class="glyphicon glyphicon-trash"></span>
-                    Delete Medication
-                  </a>  
-                </td>
-              </tr>
-          </tbody>
-          </table>
+    
+    <div class ="row">
+      <div class = "col-xs-12">
+       <nav class="navbar navbar-default">
+        <div class="container-fluid">
+          <ul class="nav navbar-nav navbar-inv">
+            <li class="pull-left">
+              <a style="text-decoration:none;" ng-click="prevMed()">Prev</a>
+            </li>
+            <li ng-repeat="med in meds" style=" float: none; display: inline-block; text-align:center;">
+              <a ng-class="{'active':isCurrentMedIndex($index)}" ng-click="setCurrentMedIndex($index)">{{med.pillName}}</a>
+            </li>
+            <li class="social pull-right">
+              <a style="text-decoration:none;" ng-click="nextMed()">Next</a>
+            </li>
+          </ul>
+        </div>
+      </nav>
     </div>
 
+  </div>
 
-    <nav class="navbar navbar-default">
-      <div class="container-fluid">
-        <ul class="nav navbar-inv navbar-nav">
-          <li class="pull-left">
-            <a style="text-decoration:none;" ng-click="prevMed()">Prev</a>
-          </li>
-          <li ng-repeat="med in meds" style=" float: none; display: inline-block; text-align:center;">
-              <a ng-class="{'active':isCurrentMedIndex($index)}" ng-click="setCurrentMedIndex($index)">{{med.pillName}}</a>
-          </li>
-          <li class="social pull-right">
-              <a style="text-decoration:none;" ng-click="nextMed()">Next</a>
-          </li>
-        </ul>
-      </div>
-    </nav>
+  <br>
 
-</div>
+  <div ng-repeat="med in meds" class="slide"  ng-hide="!isCurrentMedIndex($index)">
+    <table class="table table-striped table-bordered">
+      <th style="visibility:hidden;"></th>
+      <tbody>
+        <tr>
+          <td><strong class="col-xs-4">Medication Name</strong> {{med.pillName}}</td>
+        </tr>
+        <tr>
+          <td><strong class="col-xs-4">Inventory Slot</strong> {{med.inventorySlot}}</td>
+        </tr>
+        <tr>
+          <td><strong class="col-xs-4">Amount Remaining</strong> {{med.amount}}</td>
+        </tr>
+          <tr>
+          <td><strong class="col-xs-4">Last Dispensed</strong> {{med.lastDispensed | date:"MMM d, y h:mma"}}</td>
+        </tr>
+
+        <tr>
+          <td><strong class="col-xs-4">User</strong> {{med.userName}}</td>
+        </tr>
+
+        <tr>
+          <td><strong class="col-xs-4">Medication Dispensed per Dose</strong> {{med.dosage}}</td>
+        </tr>
+
+
+
+
+        <tr>
+          <td><strong class="col-xs-4">Instructions</strong><div ng-repeat ='instructions in med.specialInstructions|filter:"!false"'><div ng-if="$first"><div ng-if="instructions != 'Enter More Instructions'">{{instructions}}</div></div>
+            <div ng-if="!$first" class="col-xs-offset-4"><div ng-if="instructions != 'Enter More Instructions'">{{instructions}}</div></div></div></td>
+          </tr>
+          <tr>
+            <td style="text-align:center;">
+              <a href style="text-decoration:none;" ng-click="dispenseMed(med, $index)">
+                <span class="glyphicon glyphicon-glass"></span>
+                Dispense Now
+              </a>
+            </td>
+          </tr>
+
+          <tr>
+            <td style="text-align:center;">
+              <a href style="text-decoration:none;" ng-click="deleteMed(med, $index)">
+                <span class="glyphicon glyphicon-trash"></span>
+                Delete Medication
+              </a>  
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <hr ng-if="!$last">
+    </div>
+  </div>

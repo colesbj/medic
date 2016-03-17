@@ -1,50 +1,58 @@
 <div class="row">
-<div class="col-xs-3 col-xs-offset-2">
-  <div class="btn-group-vertical">
-  
+ <div class="col-xs-3 col-xs-offset-2">
+   <p><strong> How often is the pill taken?</strong></p>
+   <p> Select the Frequency Below <p>
 
-	<label class ="btn btn-default"
-    uib-btn-radio=1 ng-model="med.dispensingFreq" value=1 ng-change="radioChange()">
-    Once Daily
-  	</label>
-  	<label class ="btn btn-default"
-    uib-btn-radio=2 ng-model="med.dispensingFreq" value=2 ng-change="radioChange()">
-    Twice Daily
-  	</label>
-  	<label class ="btn btn-default"
-    uib-btn-radio= 3 ng-model="med.dispensingFreq" value=3 ng-change="radioChange()">
-    Three Times Daily
-  	</label>
-    <label class ="btn btn-default" uib-btn-radio=0
-     ng-model="med.dispensingFreq" value=0 ng-change="radioChange()">
-    Self Medicate
-  	</label>
-    <label class ="btn btn-default"
-  	uib-btn-radio=-1 ng-model="med.dispensingFreq" value=-1 ng-change="radioChange()">
-    Other
-  	</label>
-    </div>
+   </div>
+ </div>  
+ <div class="row">
+  <div class="col-xs-3 col-xs-offset-2">
+
+    <div class="btn-group-vertical">
+      
+
+     <label class ="btn btn-default"
+     uib-btn-radio=1 ng-model="med.dispensingFreq" value=1 ng-change="radioChange()">
+     Once Daily   
+   </label>
+   <label class ="btn btn-default"
+   uib-btn-radio=2 ng-model="med.dispensingFreq" value=2 ng-change="radioChange()">
+   Twice Daily
+ </label>
+ <label class ="btn btn-default"
+ uib-btn-radio= 3 ng-model="med.dispensingFreq" value=3 ng-change="radioChange()">
+ Three Times Daily
+</label>
+<label class ="btn btn-default" uib-btn-radio=0
+ng-model="med.dispensingFreq" value=0 ng-change="radioChange()">
+Self Medicate
+</label>
+<label class ="btn btn-default"
+uib-btn-radio=-1 ng-model="med.dispensingFreq" value=-1 ng-change="radioChange()">
+Other
+</label>
 </div>
-
-<div ng-if="med.dispensingFreq!=0" class="col-xs-5">
+</div>
+<div ng-if="med.dispensingFreq!=0" class="col-xs-6">
 	<div ng-repeat = "time in inputTime">
-		 <uib-timepicker ng-model="med.dispensingTime[$index]" hour-step="hstep" minute-step="mstep" show-meridian="ismeridian"></uib-timepicker>
-	</div>	
+   <p>Choose the dispensing time</p>
+   <uib-timepicker ng-model="med.dispensingTime[$index]" hour-step="hstep" minute-step="mstep" show-meridian="ismeridian"></uib-timepicker>
+ </div>	
 </div>
 </div>
-<p>Selected Value: {{med.dispensingFreq}}</p>
-
+<!--<p>Selected Value: {{med.dispensingFreq}}</p>-->
+<br>
 <div class="form-line">
-<div class="col-xs-4 col-xs-offset-2">
-    <a href ui-sref='medform.medication' class="btn btn-block btn-default">
-    <span class="glyphicon glyphicon-circle-arrow-left"></span> Previous
+  <div class="col-xs-4 col-xs-offset-2">
+    <a href ui-sref='medform.medication' class="btn btn-block btn-default" ng-click="timeSort()">
+      <span class="glyphicon glyphicon-circle-arrow-left"></span> Previous
     </a>
-</div>
-<div class="col-xs-4 ">
-    <a href ui-sref='medform.dosage' class="btn btn-block btn-default">
-    Next Section <span class="glyphicon glyphicon-circle-arrow-right"></span>
+  </div>
+  <div class="col-xs-4 ">
+    <a href ui-sref='medform.dosage' class="btn btn-block btn-default" ng-click="timeSort()">
+      Next Section <span class="glyphicon glyphicon-circle-arrow-right"></span>
     </a>
-</div>
+  </div>
 </div>
 
 

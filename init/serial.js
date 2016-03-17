@@ -12,8 +12,9 @@ serialport.list(function (err, ports) {
 });
 
 //config serial port
-SerialPort = new SerialPort("COM7",{
+SerialPort = new SerialPort("COM5",{
 	baudrate:9600,
+
 	parser:serialport.parsers.readline("\n")
 },false);
 
@@ -26,12 +27,7 @@ SerialPort.open(function(err){
   }
 });
 
-//Handles data sent ON COM port
-SerialPort.on("data", function (data) {
-  //sys.puts("here: "+data);
-  console.log('data received:' + data);
-  SerialPort.write("got it\n"); 
-});
+
 
 io.on('connection',function(socket){
 	console.log(socket.id);
@@ -46,6 +42,15 @@ io.on('connection',function(socket){
           console.log('LED OFF RECEIVED');
  
      });
+
+        //Handles data sent ON COM port
+    SerialPort.on("data", function (data) {
+      //sys.puts("here: "+data);
+      socket.emit("sent",data);
+      console.log('data received:' + data);
+
+      //SerialPort.write("got it\n"); 
+    });
 
 
 });

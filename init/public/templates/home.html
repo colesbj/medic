@@ -1,13 +1,56 @@
-<h1>Auto<span style = "color:#800000">MED</span>ic</h1>
-<img class ="homePill" src="/images/pillm.png"><br>
+
+
+<div class="row"><br/><br/>
+
+
+	<div class="col-xs-2 col-xs-offset-1" style="text-align: center;">
+		<h1>Auto<span style = "color:#b56969">MED</span>ic</h1>
+		<img class ="homePill" src="/images/pillm.png"><br>
+	</div>
+
+
+	<div class="col-xs-8">
+
+		<todays-weather
+		  id="wTag"
+		  custom-size="125"
+		  location="{{inputLocation}}"
+		  use-google-images="false">
+		</todays-weather>
+
+	</div>
+
+
+	<div class="col-xs-5 col-xs-offset-3" style="padding-top:1%">
+
+      <form ng-submit="weatherLocation()">
+
+          <div class="input-group">
+
+            <input type="text"
+              placeholder="Location"
+              ng-model="inputLocation"
+              ng-virtual-keyboard
+              class="form-control">
+
+              <span class="input-group-btn">
+                <input type="submit" class="btn btn-block btn-default btn-secondary" value="Change Location"></input>
+              </span>
+
+          </div>
+
+      </form>
+
+    </div>
+
+
+</div>
 
 
 
-<footer style="padding-bottom:40px;">
 <a href ui-sref="addmed">Add a Medication</a>
 <a href ui-sref="inventory">Inventory</a>
 <a href ui-sref="history">History</a>
 <a href ui-sref="serialtest">Serial Testing</a>
 <a href ui-sref="medform.medication">Multi-Step Form</a>
 <a href ui-sref="crypto">data</a>
-</footer>

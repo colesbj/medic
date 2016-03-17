@@ -34,6 +34,12 @@ function config($stateProvider, $urlRouterProvider,$cryptoProvider) {
       }
     })
 
+    .state('dispensing',{
+      url:'/dispensing/:medID',
+      templateUrl:'templates/dispensing.html',
+      controller:'dispensingController'
+    })
+
     .state('addmed', {
       url: '/addmed',
       templateUrl: 'templates/addmed.html',

@@ -1,18 +1,18 @@
-<!--<a href ui-sref='home'>Go Back</a>-->
+
 
 <div class="row">
 	<div class="col-xs-12">
 		<div id ="form-container">
 			<div class="page-header text-center">
-			<h2 style="color:#3b3a36;">Create a Medication</h2>
+			<h2>Create a Medication</h2>
 
 			<div id="status-buttons">
-				<a ui-sref-active="active" ui-sref=".medication"><span>1</span> name</a>
-				<a ui-sref-active="active" ui-sref=".dispensinginfo"><span>2</span> info</a>
+				<a ui-sref-active="active" ui-sref=".medication"><span>1</span> Name</a>
+				<a ui-sref-active="active" ui-sref=".dispensinginfo" ng-click="timeSort()"><span>2</span>Dispensing info</a>
 				<a ui-sref-active="active" ui-sref=".dosage"><span>3</span> dosage </a>
 				<a ui-sref-active="active" ui-sref=".startdate"><span>4</span> start Date</a>
 				<a ui-sref-active="active" ui-sref=".specialinstructions"><span>5</span> instructions </a>
-				<a ui-sref-active="active" ui-sref=".summary"><span>6</span > summary </a>
+				<a ui-sref-active="active" ui-sref=".summary" ng-click="timeSort()"><span>6</span > summary </a>
 			</div>
 		</div>
 

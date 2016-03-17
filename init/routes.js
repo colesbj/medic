@@ -10,7 +10,8 @@ var NotifyCtrl = require("./controllers/NotifyCtrl.js") ;
 
 // Pill API ENDPOINTS
 
-// Send message
+// Send SMS message
+
 router.post('/notify',NotifyCtrl.sendNotification);
 
 // Create a Pill

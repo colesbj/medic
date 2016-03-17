@@ -1,0 +1,41 @@
+<h1 class='text-center'> Currently Dispensing 	&nbsp<span class="label label-danger">{{med.dosage}}</span></h1>
+{{state}}
+
+<div class="row" >
+	<div class = "col-xs-10 col-xs-offset-1">
+		<div class="panel panel-info">
+  <!-- Default panel contents -->
+  <div class="panel-heading"><strong>Medication</strong></div>
+  <div class="panel-body">
+  	{{med.pillName}}
+  </div>
+	</div>
+</div>
+</div>
+
+<div class="row" >
+	<div class = "col-xs-10 col-xs-offset-1">
+		<div class="panel panel-info">
+  <!-- Default panel contents -->
+  <div class="panel-heading"><strong>Instructions</strong></div>
+  <div class="panel-body">
+   <div ng-repeat ='instructions in med.specialInstructions|filter:"!false"'>
+				<div ng-if="instructions != 'Enter More Instructions'">{{instructions}}</div>
+		</div>
+  </div>
+	</div>
+</div>
+</div>
+
+<div class="row" >
+	<div class = "col-xs-10 col-xs-offset-1">
+		<div class="panel panel-info">
+  <!-- Default panel contents -->
+  <div class="panel-heading"><strong>Time and Date</strong></div>
+  <div class="panel-body">
+  	{{date| date:"h:mma 'on' MMM d, y"}}
+   
+	</div>
+</div>
+</div>
+</div>

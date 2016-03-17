@@ -47,7 +47,7 @@ function _med($http) {
     return $http.post('/log',med);
   }
 
-  // Sends SMS message
+  // Sends SMS message 
   service.notify = function(med){
     return $http.post('/notify',med);
   }

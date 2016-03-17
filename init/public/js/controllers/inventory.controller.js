@@ -1,19 +1,18 @@
 
 // Instantiate the controller
 angular.module('autoMedic')
-  .controller('inventoryController', inventoryController)
-
+  .controller('inventoryController', inventoryController);
 
 // Load in our dependencies for this controller (we need _med!)
 inventoryController.$inject = [
   '$scope',
   '_med',
+  '$state',
 
   // Resolves
   'meds'
 ];
-
-function inventoryController($scope, _med, meds) {
+function inventoryController($scope, _med, $state, meds) {
   $scope.meds = meds.data;
   console.log(meds);
 
@@ -51,10 +50,9 @@ function inventoryController($scope, _med, meds) {
 
   $scope.dispensed={}; 
   $scope.dispenseMed = dispenseMed;
+
   
   function dispenseMed(med,index){
-    console.log(index) ;
-    console.log(meds[index]) ;
     $scope.dispensed.pillName = $scope.meds[index].pillName;
     $scope.dispensed.dosage = 1;
     $scope.dispensed.dateDispensed = new Date();
@@ -62,8 +60,11 @@ function inventoryController($scope, _med, meds) {
       .then(function(){
         $scope.edited = { 
         'amount': --$scope.meds[index].amount};
-        _med.notify(med);
-        _med.update(med._id, $scope.edited); 
+        _med.notify(med); // sends an SMS message 
+        _med.update(med._id, $scope.edited)
+          .then(function(){
+          $state.go('dispensing',{medID:med._id});
+        }); 
       });
   }
 }

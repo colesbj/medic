@@ -1,20 +1,70 @@
-<h2>Summary</h2>
-<div>
-<h4>Name:</h4><p>{{med.pillName}}</p>
-<h4>Quantity of Pills:</h4> <p>{{med.amount}}</p>
-<h4>Dispensing Frequency:</h4> <p>{{med.dispensingFreq}}</p>
-<h4>Dispensting Times:</h4> <p>{{med.dispensingTime}}</p>
-<h4>Number of Pills per Dose:</h4> <p>{{med.dosage}}</p>
-<h4>Start Date:</h4> <p>{{med.startDate}}</p>
-<h4>Special Instructions:</h4> <p>{{med.specialInstructions}}</p>
+
+<h4 class ="text-center">Summary</h4>
+<div class="row" >
+	<div class = "col-xs-10 col-xs-offset-1">
+
+		<label class ="col-xs-3">User</label><pre>{{med.userName}}</pre>
+	</div>
+</div>
+<div class="row" >
+	<div class = "col-xs-10 col-xs-offset-1">
+
+		<label class ="col-xs-3">Phone Number</label><pre>{{med.notifyNumber}}</pre>
+	</div>
+</div>
+<div class="row" >
+	<div class = "col-xs-10 col-xs-offset-1">
+
+		<label class ="col-xs-3">Medication Name</label><pre>{{med.pillName}}</pre>
+	</div>
+</div>
+<div class="row" >
+	<div class = "col-xs-10 col-xs-offset-1">
+
+		<label class ="col-xs-3">Quantity of Pills</label><pre>{{med.amount}}</pre>
+	</div>
+</div>
+<div class="row" >
+	<div class = "col-xs-10 col-xs-offset-1">
+		<label class ="col-xs-3">Pills are Dispensed</label><pre>{{displayFreq[med.dispensingFreq]}}</pre>
+	</div>
+</div>
+<div ng-if ="med.dispensingFreq!=0">
+	<div class="row" >
+		<div class = "col-xs-10 col-xs-offset-1">
+			<label class ="col-xs-3">Dispensing Times</label><pre><div ng-repeat='time in med.dispensingTime'> {{time| date:'shortTime'}}</div></pre>
+		</div>
+	</div>
+</div>
+<div ng-if ="med.dispensingFreq!=0">
+	<div class="row" >
+		<div class = "col-xs-10 col-xs-offset-1">
+			<label class ="col-xs-3">Start Date</label><pre>{{med.startDate|date:'EEEE MMMM d, y'}}</pre>
+		</div>
+	</div>
+</div>
+<div class="row" >
+	<div class = "col-xs-10 col-xs-offset-1">
+		<label class ="col-xs-3">Number of Pills per Dose</label><pre>{{med.dosage}}</pre>
+	</div>
+</div>
+<div class="row" >
+	<div class = "col-xs-10 col-xs-offset-1">
+		<label class ="col-xs-3">Special Instructions</label><pre><div ng-repeat ='instructions in med.specialInstructions|filter:"!false"'><div ng-if="instructions != 'Enter More Instructions'">{{instructions}}</div></div></pre>
+	</div>
+</div>
+
+
+
+
 
 <div class="form-line">
-<div class="col-xs-4">
-    <a href ui-sref='medform.specialinstructions' class="btn btn-block btn-default">
-    <span class="glyphicon glyphicon-circle-arrow-left"></span> Previous
-    </a>
-</div>
-<div class="col-xs-4">
-	<div><input type="submit" class="btn btn-block btn-primary"></div>
+	<div class="col-xs-4">
+		<a href ui-sref='medform.specialinstructions' class="btn btn-block btn-default">
+			<span class="glyphicon glyphicon-circle-arrow-left"></span> Previous
+		</a>
+	</div>
+	<div class="col-xs-4">
+		<div><input type="submit" class="btn btn-block btn-primary"></div>
 	</div>
 </div>

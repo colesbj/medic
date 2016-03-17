@@ -1,22 +1,22 @@
 
 <div class = "row">
-  <p class="text-center"><strong>Today's Date: {{currentdate|date:'MMM d, y'}}</strong></p>
+  <p class="text-center"><strong>Today's Date:</strong> {{currentdate|date:'EEEE MMMM d, y'}}</p>
 </div>
 
 <div class = "row">
   <div class="col-xs-6 col-xs-offset-3">
-  <label>Start Date: </label>
-   <p class="input-group">
-    <input type="text" class="form-control" uib-datepicker-popup="dd-MMMM-yyyy" ng-model="med.startDate" is-open="popup1.opened" min-date="minDate" max-date="maxDate" datepicker-options="dateOptions" close-text="Close" />
-    <span class="input-group-btn">
-      <button type="button" class="btn btn-default" ng-click="open()"><i class="glyphicon glyphicon-calendar"></i></button>
-    </span>
-  </p>
-</div>
+    <label>Start Date: </label>
+    <p class="input-group">
+      <input type="text" class="form-control" uib-datepicker-popup="dd-MMMM-yyyy" ng-model="med.startDate" is-open="popup1.opened" min-date="minDate" max-date="maxDate" datepicker-options="dateOptions" close-text="Close" />
+      <span class="input-group-btn">
+        <button type="button" class="btn btn-default" ng-click="open()"><i class="glyphicon glyphicon-calendar"></i></button>
+      </span>
+    </p>
+  </div>
 </div>
 
-<h4 class="text-center"> Current Choose: {{med.startDate|date:'MMM d, y'}}</h4>
-<br><br><br><br>
+<!--<h4 class="text-center"> Current Choose: {{med.startDate|date:'MMM d, y'}}</h4>-->
+<br><br><br><br><br><br><br>
 
 
 <div class="form-line">

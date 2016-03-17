@@ -16,6 +16,9 @@ function serialtestController($scope,mySocket){
 	$scope.ledOff = function(){
 		$scope.LEDState = "OFF";
 		mySocket.emit('led:off');
-		console.log('off')
+		console.log('off');
 	};
+	mySocket.on('sent',function(data){
+		$scope.PINState = data; 
+	}); 
 }

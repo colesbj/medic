@@ -68,6 +68,8 @@ exports.updatePill = function(req,res,next){
 		if(req.body.pillName) pill.pillName = req.body.pillName;
 		if(req.body.amount) pill.amount = req.body.amount;
 		if(req.body.dateAdded) pill.dateAdded = req.body.dateAdded;
+		if(req.body.userName) pill.userName = req.body.userName;
+		if(req.body.notifyNumber) pill.notifyNumber = req.body.notifyNumber;
 		if(req.body.inventorySlot){ 
 			pill.inventorySlot = req.body.inventorySlot;
 		}

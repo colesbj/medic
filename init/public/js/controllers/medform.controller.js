@@ -22,11 +22,33 @@ function medformController($scope, $state, _med) {
   $scope.currentdate = new Date();// current date used on medform-startdate  
   $scope.med.startDate = new Date();// stores the startdate for the medication to be dispensed
   $scope.hstep = 1; 
-  $scope.mstep = 15;
-  $scope.ismeridian = true; 
+  $scope.mstep = 1;
+  $scope.ismeridian = true;
+  $scope.inventoryCheck = [];
+  $scope.free = null;
+  $scope.counter = 1; 
+  
+  //used as am imventory check
+  $scope.inventoryCheck = [];
+
+  // gets all the inventory slots 
+  _med.getAll().then(function(data) {
+    data.data.forEach(function(elem){ 
+      $scope.inventoryCheck.push(elem.inventorySlot);
+    }); // obtains all the inventory slots 
+      $scope.inventoryCheck.sort(); // sorts then in a array
+      $scope.inventoryCheck.some(function(elem,index){
+        if((index+1)!=elem){
+          $scope.free = index+1;
+          //console.log(index+1);
+          return elem != index+1;
+        }
+      });
+      //console.log($scope.inventoryCheck);     
+});
   
   $scope.med.specialInstructions = [false,false,false,false,false,'Enter More Instructions'];
-
+ 
   //Date Picker 
 
   $scope.minDate = new Date();
@@ -53,20 +75,32 @@ function medformController($scope, $state, _med) {
     };
   }
 
+    $scope.timeSort=function(){
+    $scope.med.dispensingTime.sort();
+  }
+
+
   $scope.change=function(){
     $scope.med.specialInstructions[5] = 'Enter More Instructions';
   }
 
 
+  $scope.displayFreq= ['Self Medicate','Once Daily','Twice Daily','Three Times Daily'];
+
   function createMed() {
     if ($scope.medicationForm.$valid) {
-      $scope.med.inventorySlot = Math.floor((Math.random() * 8) + 1);
-      $scope.med.dateAdded = new Date(); 
-      _med.create($scope.med)
-        .then(function() {
+      //$scope.inventoryCheck =_med.getAll().data;
+        if($scope.free !=null){
+        $scope.med.inventorySlot = $scope.free;
+      };
+        $scope.med.dateAdded = new Date(); 
+       _med.create($scope.med)
+       .then(function() {
           // check to the medication was added to the inventory
           $state.go('inventory');
         });
+      //$scope.med.inventorySlot = Math.floor((Math.random() * 8) + 1);
+
     }
   }
 }

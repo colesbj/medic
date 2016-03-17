@@ -1,0 +1,64 @@
+
+
+<div class="row" style="text-align: center;">
+
+  <div class="col-xs-2" style="text-align: center; padding-top:5%;">
+
+    <weather-icon
+      cloudiness="{{ weather.clouds }}"
+      custom-size="customSize"
+      ng-if="!useGoogleImages">
+    </weather-icon>
+
+  </div>
+
+  <div class="col-xs-5">
+    
+    <span style="display:inline-block; vertical-align:middle">
+
+      <h1>{{weather.loc}}</h1>
+
+      <h2>
+        <span ng-repeat="weather in weather.temp.main"> {{ weather }} </span>
+      </h2>
+
+      <h3 ng-show="weather.temp.current">
+        It is currently <span ng-bind-html="weather.temp.current | temp:1:units"></span> outside 
+      </h3>
+       
+      High: <span ng-bind-html="weather.temp.min | temp:0:units"></span><br/>
+      Low: <span ng-bind-html="weather.temp.max | temp:0:units"></span><br/><br/>
+
+      Sunrise: <span ng-bind-html="weather.temp.rise | date: 'hh:mm a' "></span><br/>
+      Sunset : <span ng-bind-html="weather.temp.set | date: 'hh:mm a' "></span><br/>  
+
+
+    </span>
+  </div>
+
+<!--
+    <div class="col-xs-7 col-xs-offset-0" style="padding-top:1%">
+
+      <form ng-submit="weatherLocation()">
+
+          <div class="input-group">
+
+            <input type="text"
+              id="wLoc"
+              placeholder="Location"
+              ng-model="location"
+              ng-virtual-keyboard
+              class="form-control">
+
+              <span class="input-group-btn">
+                <input type="submit" class="btn btn-block btn-default btn-secondary" value="Change Location"></input>
+              </span>
+
+          </div>
+
+      </form>
+
+    </div>
+-->
+
+</div>

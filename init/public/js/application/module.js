@@ -8,9 +8,9 @@ angular.module('autoMedic', [
   'ui.bootstrap',
   'angular-virtual-keyboard',
   'ds.clock',
-  'ngTable'
+  'ngSanitize',
+  'weatherModule'
 ])
-
 .config(['VKI_CONFIG', function(VKI_CONFIG) {
 			VKI_CONFIG.layout.Numerico = {
 				'name': "Numerico", 'keys': [
