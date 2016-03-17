@@ -13,7 +13,6 @@ weatherModule.service('weatherService', function($http) {
       forecast: {},
       
       getWeather: function(location, units) {
-        console.log(location) ;
         location = location || 'Hamilton, ON';
 
         if(service.curWeather[location])
@@ -85,9 +84,6 @@ weatherModule.directive('todaysWeather', function(weatherService){
       units: '@?'
     },
     templateUrl:'templates/currentWeatherDisplay.tpl.html',
-    controller: function($scope){
-      console.log($scope) ;
-    },
     link: function(scope, iElem, iAttr) {
     	scope.$watch('location', function($http) {
 	    		scope.customSize = scope.customSize || 75;

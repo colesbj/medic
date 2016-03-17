@@ -54,12 +54,12 @@ function inventoryController($scope, _med, $state, meds) {
   
   function dispenseMed(med,index){
     $scope.dispensed.pillName = $scope.meds[index].pillName;
-    $scope.dispensed.dosage = 1;
+    $scope.dispensed.dosage = $scope.meds[index].dosage;
     $scope.dispensed.dateDispensed = new Date();
     _med.logPill($scope.dispensed)
       .then(function(){
         $scope.edited = { 
-        'amount': --$scope.meds[index].amount};
+        'amount': $scope.meds[index].amount-$scope.meds[index].dosage};
         _med.notify(med); // sends an SMS message 
         _med.update(med._id, $scope.edited)
           .then(function(){
