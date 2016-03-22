@@ -13,6 +13,7 @@ inventoryController.$inject = [
   'meds'
 ];
 function inventoryController($scope, _med, $state, meds) {
+
   $scope.meds = meds.data;
   console.log(meds);
 

@@ -18,7 +18,14 @@ function config($stateProvider, $urlRouterProvider,$cryptoProvider) {
 
     .state('home', {
       url: '/',
-      templateUrl: 'templates/home.html'
+      templateUrl: 'templates/home.html',
+      controller: 'homeController',
+      
+      resolve: {
+        meds: ['_med', function(_med) {
+          return _med.getAll();
+        }]
+      }
     })
 
     .state('inventory', {

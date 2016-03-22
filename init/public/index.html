@@ -6,11 +6,10 @@
   <link rel="stylesheet" href="stylesheets/theme.css">
   <link rel='stylesheet' href='bower_components/angular-virtual-keyboard/release/angular-virtual-keyboard.css'>
   <link rel="stylesheet" href="bower_components/weather-icons/css/weather-icons.css">
-
-
+  <link rel="shortcut icon" href="">
 
 </head>
-<body ng-app="autoMedic"ng-style ="{'background-color':'#f6f1ed'}">
+<body ng-app="autoMedic">
   <div class=>
   <nav class="navbar navbar-default navbar-fixed-top">
     <div class="container">
@@ -35,7 +34,7 @@
   </nav>
 
   <!-- ui-view is an example of a directive, remember these? -->
-  <div class="container-fluid text-center">
+  <div class="container-fluid text-center" ng-controller="mainController">
     <div class="row">
       <div class="col-xs-12 text-left">
       <div ui-view></div>
@@ -44,7 +43,7 @@
   </div>
 
 
-<script type="text/javascript" src="bower_components/angular/angular.min.js"></script>
+<script type="text/javascript" src="bower_components/angular/angular.js"></script>
 <script type="text/javascript" src="bower_components/angular-animate/angular-animate.js"></script>
 <script type="text/javascript" src="bower_components/angular-ui-router/release/angular-ui-router.min.js"></script>
 <script type='text/javascript' src="bower_components/cryptojslib/rollups/aes.js"></script>
@@ -62,9 +61,17 @@
 <script type="text/javascript" src="js/application/module.js"></script>
 <script type="text/javascript" src="js/application/config.js"></script>
 
+
+<!--<script type="text/javascript" src="js/directive/ngAutocomplete.js"></script>
+<script type="text/javascript" src="js/directive/weather.directive.js"></script>-->
+ <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?libraries=places&sensor=false"></script>
+
+
+
 <script type="text/javascript" src="js/services/weather.service.js"></script>
 <script type="text/javascript" src="js/services/med.service.js"></script>
 <script type="text/javascript" src="js/services/socket.factory.js"></script>
+<script type="text/javascript" src="js/controllers/home.controller.js"></script>
 <script type="text/javascript" src="js/controllers/inventory.controller.js"></script>
 <script type="text/javascript" src="js/controllers/medform.controller.js"></script>
 <script type="text/javascript" src="js/controllers/addmed.controller.js"></script>
@@ -72,9 +79,19 @@
 <script type="text/javascript" src="js/controllers/serialtest.controller.js"></script>
 <script type="text/javascript" src="js/controllers/crypto.controller.js"></script>
 <script type="text/javascript" src="js/controllers/dispensing.controller.js"></script>
+
+<script type="text/javascript" src="js/controllers/main.controller.js"></script>
+
+
 </body>
 
 <footer>
   <p>For All Your Dispensing Needs ;)   &copy; 2016</p>
+  <a href ui-sref="addmed">Add a Medication</a>
+<a href ui-sref="inventory">Inventory</a>
+<a href ui-sref="history">History</a>
+<a href ui-sref="serialtest">Serial Testing</a>
+<a href ui-sref="medform.medication">Multi-Step Form</a>
+<a href ui-sref="crypto">data</a>
 </footer>
 </html>

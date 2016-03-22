@@ -21,7 +21,7 @@
     "angular-ui-clock": "^0.5.0",
     "angular-virtual-keyboard": "^0.4.3",
     "angular-weather": "^0.0.2",
-    "angular-weather-directive": "https://github.com/shusain/angular-sh-weather.git#~0.0.2"
-
+    "angular-weather-directive": "https://github.com/shusain/angular-sh-weather.git#~0.0.2",
+    "angular-google-places-autocomplete": "^0.2.7"
   }
 }

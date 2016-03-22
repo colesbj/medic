@@ -1,56 +1,47 @@
 
+<div class="container"><br/><br/>
 
-<div class="row"><br/><br/>
+	<div class="col-xs-3 col-xs-offset-0" style="text-align:center;">
 
-
-	<div class="col-xs-2 col-xs-offset-1" style="text-align: center;">
 		<h1>Auto<span style = "color:#b56969">MED</span>ic</h1>
 		<img class ="homePill" src="/images/pillm.png"><br>
 	</div>
 
-
-	<div class="col-xs-8">
-
+	<div class="col-xs-6">
 		<todays-weather
-		  id="wTag"
+		  units='Metric'
 		  custom-size="125"
-		  location="{{inputLocation}}"
-		  use-google-images="false">
+		  location="{{model.searchLocation}}"
+		  change="{{newLoc}}"
+		  use-google-images="true">
 		</todays-weather>
 
+		<p ng-model="newLoc"></p>
+
+		<form class="locationForm">
+      		<div class="input-group">
+    			<input id="pac-input" class="form-control"  type="text" placeholder="Search for a location" ng-model="model.searchLocation" ng-virtual-keyboard="{forcePosition:'top'}"/>
+    			<span class="input-group-btn">
+    				<button type="button" class="form-control" ng-click="newLocation()">Change Location</button> 
+    			</span>
+    		</div>
+    	</form>
+    	
+	</div>
+
+	<div class="col-xs-3">
+	    <div >
+	      	<div style="text-align:center; background-color:#d9edf7; padding:20px; border-radius:20px;">
+	        	<h1>Schedule</h1>
+
+		    	<div ng-repeat="med in meds">
+		    		<p> {{med.pillName}} </p>
+		    	</div>
+
+	    	</div>
+		</div>
 	</div>
 
 
-	<div class="col-xs-5 col-xs-offset-3" style="padding-top:1%">
-
-      <form ng-submit="weatherLocation()">
-
-          <div class="input-group">
-
-            <input type="text"
-              placeholder="Location"
-              ng-model="inputLocation"
-              ng-virtual-keyboard
-              class="form-control">
-
-              <span class="input-group-btn">
-                <input type="submit" class="btn btn-block btn-default btn-secondary" value="Change Location"></input>
-              </span>
-
-          </div>
-
-      </form>
-
-    </div>
-
 
 </div>
-
-
-
-<a href ui-sref="addmed">Add a Medication</a>
-<a href ui-sref="inventory">Inventory</a>
-<a href ui-sref="history">History</a>
-<a href ui-sref="serialtest">Serial Testing</a>
-<a href ui-sref="medform.medication">Multi-Step Form</a>
-<a href ui-sref="crypto">data</a>

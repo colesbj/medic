@@ -1,26 +1,15 @@
 <br>
-<div class="row">
-  <div class="col-xs-2 col-xs-offset-1">
-    <a href ui-sref='home'class="btn btn-block btn-default" > 
-      <i class="glyphicon glyphicon-home"></i>&nbsp;Go Back</a>
-    </div>
- </div>
 
 
   <h2 class="text-center">Inventory</h2>
-  <p class="text-center">Select the Medication Name Below</p>
-
-
+  <h5 class="text-center">Select the Medication Name Below</h5>
 
 
   <div class="container unselectable">
-
-
-
-    
+    <form class="locationForm">
     <div class ="row">
       <div class = "col-xs-12">
-       <nav class="navbar navbar-default">
+       <nav class="navbar ">
         <div class="container-fluid">
           <ul class="nav navbar-nav navbar-inv">
             <li class="pull-left">
@@ -36,13 +25,12 @@
         </div>
       </nav>
     </div>
-
   </div>
 
   <br>
 
   <div ng-repeat="med in meds" class="slide"  ng-hide="!isCurrentMedIndex($index)">
-    <table class="table table-striped table-bordered">
+    <table class="table table-striped">
       <th style="visibility:hidden;"></th>
       <tbody>
         <tr>
@@ -92,6 +80,6 @@
           </tr>
         </tbody>
       </table>
-      <hr ng-if="!$last">
     </div>
+  </form>
   </div>
