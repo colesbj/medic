@@ -10,9 +10,13 @@ config.$inject = [
   '$cryptoProvider'
 ];
 
-function config($stateProvider, $urlRouterProvider,$cryptoProvider) {
+function config($stateProvider, $urlRouterProvider, $cryptoProvider) {
+
+
+
 
   $cryptoProvider.setCryptographyKey('ABCD123');
+
   // Load up our states
   $stateProvider
 
@@ -108,6 +112,10 @@ function config($stateProvider, $urlRouterProvider,$cryptoProvider) {
     .state('medform.specialinstructions',{
       url:'/specialinstructions',
       templateUrl:'templates/medform-specialinstructions.html'
+    })
+    .state('medform.googlesignin',{
+      url:'/googlesignin',
+      templateUrl:'templates/medform-googlesignin.html'
     })
     // Final Step is a Summary of the choices and the submit button 
     .state('medform.summary',{

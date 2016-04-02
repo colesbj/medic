@@ -6,10 +6,12 @@ angular.module('autoMedic')
 medformController.$inject = [
   '$scope',
   '$state',
-  '_med'
+  '_med',
+  '$confirm'
 ];
 
-function medformController($scope, $state, _med) {
+function medformController($scope, $state, _med, $confirm) {
+
   $scope.createMed= createMed;
   $state.go('medform.medication');
 
@@ -84,23 +86,105 @@ function medformController($scope, $state, _med) {
     $scope.med.specialInstructions[5] = 'Enter More Instructions';
   }
 
-
   $scope.displayFreq= ['Self Medicate','Once Daily','Twice Daily','Three Times Daily'];
 
   function createMed() {
     if ($scope.medicationForm.$valid) {
+        //handleAuthClick(event);
+
+        if ($scope.med.dispensingTime.length){
+          $confirm({text: 'Do you want to add to your Google Calendar?'})
+          .then(function() {
+            handleAuthClick(event);
+          });
+        }
+
+        //console.log($scope.med.dispensingTime[0]) ;
+        //console.log($scope.med.dispensingFreq) ;
       //$scope.inventoryCheck =_med.getAll().data;
+
         if($scope.free !=null){
-        $scope.med.inventorySlot = $scope.free;
-      };
-        $scope.med.dateAdded = new Date(); 
-       _med.create($scope.med)
-       .then(function() {
+          $scope.med.inventorySlot = $scope.free;
+        };
+
+        $scope.med.dateAdded = new Date();
+
+         console.log($scope.med) ;
+
+         _med.create($scope.med)
+         .then(function() {
           // check to the medication was added to the inventory
           $state.go('inventory');
         });
       //$scope.med.inventorySlot = Math.floor((Math.random() * 8) + 1);
 
+    }
+  }
+
+
+
+  var CLIENT_ID = '661800350617-2qr5t7mralm37q3gqopbapubk5r81er8.apps.googleusercontent.com';
+
+  var SCOPES = ["https://www.googleapis.com/auth/calendar"];
+
+  /**
+   * Initiate auth flow in response to user clicking authorize button.
+   *
+   * @param {Event} event Button click event.
+   */
+   $scope.handleAuthClick = handleAuthClick ;
+  function handleAuthClick(event) {
+    gapi.auth.authorize(
+      {client_id: CLIENT_ID, scope: SCOPES, immediate: false, authuser: -1},
+      loadCalendarApi);
+    return false;
+  }
+
+  /**
+   * Load Google Calendar client library. List upcoming events
+   * once client library is loaded.
+   */
+   $scope.loadCalendarApi = loadCalendarApi ;
+  function loadCalendarApi() {
+    gapi.client.load('calendar', 'v3', addEvent);
+  }
+
+
+   $scope.addEvent = addEvent ;
+  function addEvent() {
+    console.log($scope.med.dispensingTime.length) ;
+    for (var i =0; i < $scope.med.dispensingTime.length; i++){
+          var event = {
+              'summary': $scope.med.pillName,
+              'description': 'Take your '+$scope.med.pillName+' medication ',
+              'start': {
+                'dateTime': moment($scope.med.dispensingTime[i]).format("YYYY-MM-DDTHH:mm:ss"),
+                'timeZone': 'America/Toronto',
+              },
+              'end': {
+                'dateTime': moment(moment($scope.med.dispensingTime[i]).format("YYYY-MM-DDTHH:mm:ss")).add(30, 'minutes'),
+                'timeZone': 'America/Toronto',
+              },
+              'recurrence': [
+                'RRULE:FREQ=DAILY;COUNT='+ $scope.med.amount/( $scope.med.dispensingTime.length * $scope.med.dosage )
+              ],
+              'reminders': {
+                'useDefault': false,
+                'overrides': [
+                  {'method': 'popup', 'minutes': 10},
+                ],
+              },
+            };
+        
+
+      var request = gapi.client.calendar.events.insert({
+        'calendarId': 'primary',
+        'resource': event
+      });
+
+      request.execute(function(event) {
+        console.log('Event created: ' + event.htmlLink);
+      });
     }
   }
 }

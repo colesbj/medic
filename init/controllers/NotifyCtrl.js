@@ -14,8 +14,10 @@ exports.sendNotification = function(req, res, next){
 
 		var message = greeting + ' ' + req.body.userName + ', ' + req.body.dosage + ' pills of your ' + req.body.pillName + ' medication have been dispensed!';
 		var to = '+1' + req.body.notifyNumber ;
+		console.log(message) ; 
 
-/*
+
+		/*
 		var TMClient = require('textmagic-rest-client');
 		var key = 'hchVUWOoNmkPBILdddbS1aN4gHy32t';
 		var c = new TMClient('brandonc', key);

@@ -14,7 +14,7 @@ mainController.$inject = [
 function mainController($scope, $state, $interval, _med) {
 
 
-	$interval(callAtInterval, 5000); // 5 minutes, callAtInterval called
+	//$interval(callAtInterval, 5000); // 5 minutes, callAtInterval called
 
 	$scope.callAtInterval = callAtInterval;
 	  

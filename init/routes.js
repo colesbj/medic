@@ -10,8 +10,10 @@ var NotifyCtrl = require("./controllers/NotifyCtrl.js") ;
 
 // Pill API ENDPOINTS
 
-// Send SMS message
+// Add pills to calendar
+router.post('/addToCalendar',NotifyCtrl.addToCalendar);
 
+// Send SMS message
 router.post('/notify',NotifyCtrl.sendNotification);
 
 // Create a Pill

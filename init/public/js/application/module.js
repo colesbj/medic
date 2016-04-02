@@ -9,7 +9,8 @@ angular.module('autoMedic', [
   'angular-virtual-keyboard',
   'ds.clock',
   'ngSanitize',
-  'weatherModule'
+  'weatherModule',
+  'angular-confirm'
 ])
 .config(['VKI_CONFIG', function(VKI_CONFIG) {
 

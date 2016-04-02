@@ -21,7 +21,7 @@ weatherModule.service('weatherService', function($http) {
         $http.get('http://api.openweathermap.org/data/2.5/weather?q='+location+'&units='+units+'&cnt=5&APPID=0d975d451b33ba3b542a1dfdfe9a17e9').success(function(data) {
             if (data) {
                 if (data.main) {
-                    console.log(data);
+                    //console.log(data);
                     service.curWeather[location].loc = location ;
                     service.curWeather[location].temp.current = data.main.temp;
                     service.curWeather[location].temp.min = data.main.temp_min;
