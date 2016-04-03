@@ -125,6 +125,7 @@ function inventoryController($scope, _med, $state, $confirm, meds) {
 
           request.execute(function(resp) {
               var events = resp.items;
+              console.log('Deleted event: '+i); 
           });
 
       }

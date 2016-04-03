@@ -91,6 +91,7 @@ function medformController($scope, $state, _med, $confirm) {
   function createMed() {
     if ($scope.medicationForm.$valid) {
         //handleAuthClick(event);
+        console.log($scope.med) ;
 
         if ($scope.med.dispensingTime.length){
           $confirm({text: 'Do you want to add to your Google Calendar?'})
@@ -147,15 +148,16 @@ function medformController($scope, $state, _med, $confirm) {
   function addEvent() {
     console.log($scope.med.dispensingTime.length) ;
     for (var i =0; i < $scope.med.dispensingTime.length; i++){
+      console.log(  moment($scope.med.startDate).format("YYYY-MM-DDT") + moment($scope.med.dispensingTime[i]).format("HH:mm:ss") );
           var event = {
               'summary': $scope.med.pillName,
               'description': 'Take your '+$scope.med.pillName+' medication ',
               'start': {
-                'dateTime': moment($scope.med.dispensingTime[i]).format("YYYY-MM-DDTHH:mm:ss"),
+                'dateTime': moment($scope.med.startDate).format("YYYY-MM-DDT") + moment($scope.med.dispensingTime[i]).format("HH:mm:ss") ,
                 'timeZone': 'America/Toronto',
               },
               'end': {
-                'dateTime': moment(moment($scope.med.dispensingTime[i]).format("YYYY-MM-DDTHH:mm:ss")).add(5, 'minutes'),
+                'dateTime': moment( moment($scope.med.startDate).format("YYYY-MM-DDT") + moment($scope.med.dispensingTime[i]).format("HH:mm:ss") ).add(5, 'minutes'),
                 'timeZone': 'America/Toronto',
               },
               'recurrence': [
