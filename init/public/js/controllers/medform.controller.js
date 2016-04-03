@@ -127,12 +127,8 @@ function medformController($scope, $state, _med, $confirm) {
 
   var SCOPES = ["https://www.googleapis.com/auth/calendar"];
 
-  /**
-   * Initiate auth flow in response to user clicking authorize button.
-   *
-   * @param {Event} event Button click event.
-   */
-   $scope.handleAuthClick = handleAuthClick ;
+
+  $scope.handleAuthClick = handleAuthClick ;
   function handleAuthClick(event) {
     gapi.auth.authorize(
       {client_id: CLIENT_ID, scope: SCOPES, immediate: false, authuser: -1},
@@ -140,17 +136,14 @@ function medformController($scope, $state, _med, $confirm) {
     return false;
   }
 
-  /**
-   * Load Google Calendar client library. List upcoming events
-   * once client library is loaded.
-   */
-   $scope.loadCalendarApi = loadCalendarApi ;
+
+  $scope.loadCalendarApi = loadCalendarApi ;
   function loadCalendarApi() {
     gapi.client.load('calendar', 'v3', addEvent);
   }
 
 
-   $scope.addEvent = addEvent ;
+  $scope.addEvent = addEvent ;
   function addEvent() {
     console.log($scope.med.dispensingTime.length) ;
     for (var i =0; i < $scope.med.dispensingTime.length; i++){

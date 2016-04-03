@@ -23,4 +23,8 @@ angular.module('autoMedic', [
 			], 'lang': ["pt-BR-num"] };
 
 
-		}]);
+		}])
+.run(function($confirmModalDefaults) {
+  $confirmModalDefaults.defaultLabels.ok = '';
+  $confirmModalDefaults.defaultLabels.cancel = '';
+})

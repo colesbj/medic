@@ -8,15 +8,17 @@ inventoryController.$inject = [
   '$scope',
   '_med',
   '$state',
+  '$confirm',
 
   // Resolves
   'meds'
 ];
-function inventoryController($scope, _med, $state, meds) {
+function inventoryController($scope, _med, $state, $confirm, meds) {
 
   $scope.meds = meds.data;
-  console.log(meds);
-
+  //console.log(meds);
+  $scope.deleteInfo = {};
+  $scope.eventid ={};
 
   $scope.currentIndex = 0 ;
   $scope.setCurrentMedIndex = function (index) {
@@ -40,14 +42,23 @@ function inventoryController($scope, _med, $state, meds) {
 
 
     $scope.currentIndex = --$scope.currentIndex ;
-
+    //console.log(med);
+    $scope.deleteInfo = med;
+    //console.log($scope.deleteInfo)
+    $confirm({text: 'Remove your Google Calendar?'})
+      .then(function() {
+        handleAuthClick(event);
+      });
+    
     _med.delete(med._id)
       .then(function() {
 
         // Medication was deleted, let's remove it from the list!
         $scope.meds.splice(index, 1);
       });
+
   }
+
 
   $scope.dispensed={}; 
   $scope.dispenseMed = dispenseMed;
@@ -68,4 +79,60 @@ function inventoryController($scope, _med, $state, meds) {
         }); 
       });
   }
+
+
+  var CLIENT_ID = '661800350617-2qr5t7mralm37q3gqopbapubk5r81er8.apps.googleusercontent.com';
+
+  var SCOPES = ["https://www.googleapis.com/auth/calendar"];
+
+   $scope.handleAuthClick = handleAuthClick ;
+  function handleAuthClick(event) {
+    gapi.auth.authorize(
+      {client_id: CLIENT_ID, scope: SCOPES, immediate: false, authuser: -1},
+      loadCalendarApi);
+    return false;
+  }
+
+   $scope.loadCalendarApi = loadCalendarApi ;
+  function loadCalendarApi() {
+    gapi.client.load('calendar', 'v3', deleteEvent);
+  }
+
+
+  $scope.deleteEvent = deleteEvent ;
+  function deleteEvent() {
+
+    console.log('Delete pill name: '+$scope.deleteInfo.pillName) ;
+    var q = $scope.deleteInfo.pillName ;
+    var eventid ;
+
+
+    var request = gapi.client.calendar.events.list({
+      'calendarId': 'primary',
+      'q': q
+    });
+
+    request.execute(function(resp) {
+
+      for (var i =0; i < $scope.deleteInfo.dispensingTime.length; i++){
+
+          eventid = resp.items[i].id ;
+          
+          var request = gapi.client.calendar.events.delete({
+            'calendarId': 'primary',
+            'eventId': eventid
+          });
+
+          request.execute(function(resp) {
+              var events = resp.items;
+          });
+
+      }
+
+    });
+
+  }
+
+
+
 }
