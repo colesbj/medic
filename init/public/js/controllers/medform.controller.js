@@ -155,7 +155,7 @@ function medformController($scope, $state, _med, $confirm) {
                 'timeZone': 'America/Toronto',
               },
               'end': {
-                'dateTime': moment(moment($scope.med.dispensingTime[i]).format("YYYY-MM-DDTHH:mm:ss")).add(30, 'minutes'),
+                'dateTime': moment(moment($scope.med.dispensingTime[i]).format("YYYY-MM-DDTHH:mm:ss")).add(5, 'minutes'),
                 'timeZone': 'America/Toronto',
               },
               'recurrence': [
