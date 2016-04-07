@@ -148,7 +148,7 @@ function medformController($scope, $state, _med, $confirm) {
   function addEvent() {
     console.log($scope.med.dispensingTime.length) ;
     for (var i =0; i < $scope.med.dispensingTime.length; i++){
-      console.log(  moment($scope.med.startDate).format("YYYY-MM-DDT") + moment($scope.med.dispensingTime[i]).format("HH:mm:ss") );
+
           var event = {
               'summary': $scope.med.pillName,
               'description': 'Take your '+$scope.med.pillName+' medication ',

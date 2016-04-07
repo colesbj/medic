@@ -16,7 +16,6 @@ inventoryController.$inject = [
 function inventoryController($scope, _med, $state, $confirm, meds) {
 
   $scope.meds = meds.data;
-  //console.log(meds);
   $scope.deleteInfo = {};
   $scope.eventid ={};
 

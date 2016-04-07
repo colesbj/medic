@@ -12,9 +12,6 @@ config.$inject = [
 
 function config($stateProvider, $urlRouterProvider, $cryptoProvider) {
 
-
-
-
   $cryptoProvider.setCryptographyKey('ABCD123');
 
   // Load up our states
