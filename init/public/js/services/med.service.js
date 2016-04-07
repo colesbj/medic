@@ -52,5 +52,30 @@ function _med($http) {
     return $http.post('/notify',med);
   }
 
+  // reminder to take medication 
+  service.reminder = function(med){
+    return $http.post('/reminder',med);
+  }
+
+  // Get Schedule
+  service.getSchedule = function(){
+    return $http.get('/schedule');
+  }
+
+  // Create Schedule
+  service.createSchedule = function(data){
+    return $http.post('/schedule',data);
+  }
+
+  // Delete Schedule
+  service.deleteSchedule = function(id){
+    return $http.get('/schedule'+id);
+  }
+
+  // Update Schedule 
+   service.updateSchedule = function(id, data){
+    return $http.put('/schedule/'+id, data);
+  }
+
   return service;
 }

@@ -13,7 +13,6 @@ angular.module('autoMedic', [
   'angular-confirm'
 ])
 .config(['VKI_CONFIG', function(VKI_CONFIG) {
-
 			VKI_CONFIG.layout.Numerico = {
 				'name': "Numerico", 'keys': [
 				[["1", '1'], ["2", "2"], ["3", "3"], ["Bksp", "Bksp"]],
@@ -22,6 +21,8 @@ angular.module('autoMedic', [
 				[["0", "0"], ["-"], ["+"], [","]]
 			], 'lang': ["pt-BR-num"] };
 
+			VKI_CONFIG.deadkeysOn = false;
+			VKI_CONFIG.size = 4;
 
 		}])
 .run(function($confirmModalDefaults) {

@@ -1,0 +1,32 @@
+<!--<h1 class='text-center'> Insert 	&nbsp<span class="label label-danger">{{med.amount}}</span></h1>-->
+
+
+<h1 class='text-center' ng-if='!showInstruction'><br><br> Wait to Pour Medication </h1>
+
+<div ng-if='showInstruction'>
+	<br><br>
+<h1 class='text-center'> Pour in {{med.pillName}} Medication into the Dispenser</h1>
+<br>
+
+<div class="col-xs-6 col-xs-offset-3">
+    <a href ui-sref='inventory' class="btn btn-block btn-lg btn-success">
+      <span class="glyphicon glyphicon-ok"></span> CLICK WHEN FINISHED
+    </a>
+  </div>
+</div>
+<!--
+<div class="row" >
+	<div class = "col-xs-10 col-xs-offset-1">
+		<div class="panel panel-info">
+   Default panel contents -->
+   <!--
+  <div class="panel-heading"><strong>Medication</strong></div>
+  <div class="panel-body">
+  	{{med.pillName}}
+  </div>
+	</div>
+</div>
+</div>
+-->
+
+

@@ -7,11 +7,15 @@ var router = express.Router();
 var PillCtrl = require("./controllers/PillCtrl.js");
 var LogCtrl = require("./controllers/LogCtrl.js");
 var NotifyCtrl = require("./controllers/NotifyCtrl.js") ;
-
+var ScheduleCtrl = require("./controllers/ScheduleCtrl.js");
 // Pill API ENDPOINTS
 
 // Send SMS message
+
 router.post('/notify',NotifyCtrl.sendNotification);
+
+//Send SMS reminder message
+router.post('/reminder',NotifyCtrl.sendReminder);
 
 // Create a Pill
 router.post('/meds',PillCtrl.createPill);
@@ -32,6 +36,16 @@ router.delete('/meds/:pill_id',PillCtrl.deletePill);
 router.post('/log',LogCtrl.logPill); 
 
 //Get All Dispensed Pills
-router.get('/log',LogCtrl.getLogs); 
+router.get('/log',LogCtrl.getLogs);
+
+//Create a schedule
+router.post('/schedule',ScheduleCtrl.createSchedule);
+
+//Get the schedule 
+router.get('/schedule',ScheduleCtrl.getSchedule);
+// Update a schedule
+router.put('/schedule/:schedule_id',ScheduleCtrl.updateSchedule);
+// Delete a schedule
+router.delete('/schedule/:schedule_id',ScheduleCtrl.deleteSchedule);
 
 module.exports = router;

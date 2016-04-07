@@ -44,6 +44,5 @@
   },
   "_source": "git://github.com/matowens/ng-notify.git",
   "_target": "^0.7.2",
-  "_originalSource": "ng-notify",
-  "_direct": true
+  "_originalSource": "ng-notify"
 }

@@ -12,6 +12,33 @@ body {
   height:100px;
 }
 
+.jumbotron { 
+    background-color: #ffffff; /* white */
+    /*color: #ffffff;*/
+}
+.img-circle{
+  border: 5px solid; 
+  border-color:#ffffff;
+}
+
+.img-circle:hover{
+  border: 5px solid; 
+  border-color:#d9edf7;
+}
+
+.right.carousel-control ,.left.carousel-control{
+    background-image: none;
+    color: #800000;
+}
+
+.carousel-indicators li {
+    border-color: #ffffff;
+}
+
+.carousel-indicators li.active {
+    background-color: #800000;
+}
+
 .navbar {
     margin-bottom: 0;
     background-color: #fff;
@@ -38,7 +65,7 @@ body {
 }
 
 .navbar-header .glyphicon{
-  color:#b56969;
+	color:#b56969;
 }
 
 .navbar-inv {
@@ -83,16 +110,14 @@ body {
   width:20%;
 }
 
-
 a {
   color: #b56969;
 }
 
 button a span glyphicon{
-  color: #b56969; 
+	color: #b56969; 
 
 }
-
 footer {
     position: fixed;
     right: 0;
@@ -107,16 +132,16 @@ footer {
 
 /* medication form styling */
 #form-container{ 
-  background:#fff; 
-  margin-top:10px;
-  margin-bottom:10px;
+	background:#fff; 
+	margin-top:10px;
+	margin-bottom:10px;
     border-radius:5px; 
     color: #3b3a36;}
 #form-container .page-header   {
-   background:#d9edf7;
-   color:#b56969; 
-   margin:0; 
-   padding:5px; 
+	 background:#d9edf7;
+	 color:#b56969; 
+	 margin:0; 
+	 padding:5px; 
      border-top-left-radius:5px; 
      border-top-right-radius:5px;
      font-weight: bold; }
@@ -124,44 +149,41 @@ footer {
 /* numbered buttons */
 #status-buttons{  }
 #status-buttons a{ 
-  color:#b56969;
-  display:inline-block; 
-  font-size:12px; 
-  margin-right:10px; 
-  text-align:center; 
-  text-transform:uppercase; 
-  font-weight: bold;}
+	color:#b56969;
+	display:inline-block; 
+	font-size:12px; 
+	margin-right:10px; 
+	text-align:center; 
+	text-transform:uppercase; 
+ 	font-weight: bold;}
 #status-buttons a:hover{ 
-  text-decoration:none; }
+	text-decoration:none; }
 
 /* we will style the span as the circled number */
 #status-buttons span{ 
-  background:#fff; 
-  display:block; 
-  height:30px; 
-  margin:0 
-  auto 10px; 
-  padding-top:5px; 
-  width:30px; 
+	background:#fff; 
+	display:block; 
+	height:30px; 
+	margin:0 
+	auto 10px; 
+	padding-top:5px; 
+	width:30px; 
     border-radius:50%; }
 
 /* active buttons turn light green-blue*/
 #status-buttons a.active span   { 
-  background:#e6cf8b; 
+	background:#e6cf8b; 
 }
 
-#form-views  { 
-  width:auto;
-  height: 50%; 
-}
+#form-views             { 
+	width:auto; }
 #med-form            { 
-  position:relative; 
-  min-height:550px; 
-  overflow:hidden; 
-  padding:30px; 
-}
+	position:relative; 
+	min-height:250px; 
+	overflow:hidden; 
+	padding:30px; }
 
-.btnimage {
+  .btnimage {
   height: 30px;
   width: 30px;
 }

@@ -4,10 +4,7 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
-var google = require("googleapis");
-
-
-// Used for Google Calendar
+//var google = require("googleapis");
 
 var app = express();
 
@@ -15,7 +12,8 @@ var app = express();
 
 // connecting to the Database 
 var mongoose = require('mongoose');
-mongoose.connect("mongodb://Medic:1234@ds039145.mongolab.com:39145/medsdb",function(err){
+mongoose.connect("mongodb://Medic:1234@ds039145.mlab.com:39145/medsdb",function(err){
+//mongoose.connect("mongodb://Medic:1234@localhost:27017/medsdb",function(err){
     if(err) console.log(err); 
 });
 
@@ -44,3 +42,12 @@ app.use('/',apiRoutes); // the url path and then the file that handles these rou
 var errorHandler = require('./errors.js')(app); 
 
 module.exports = app;
+
+/*
+db.createUser(
+   {
+     user: "Medic",
+     pwd: "1234",
+     roles: [ "readWrite", "dbAdmin" ]
+   }
+)*/

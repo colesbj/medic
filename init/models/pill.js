@@ -3,8 +3,8 @@ var Schema = mongoose.Schema;
 
 var PillSchema = new Schema({
 
-	userName: String,
-	notifyNumber: Number,
+	userName: String, //This is the person whose pill it is
+	notifyNumber: Number, // This is the phone number to whom it will send the text message 
 	pillName: String, // generic or manufactures name
 	amount: Number, // current amount of pills
 	inventorySlot: Number, // where the pill is stored

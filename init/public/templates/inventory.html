@@ -1,7 +1,13 @@
 <br>
+<div class="row">
+  <div class="col-xs-2 col-xs-offset-1">
+    <a href ui-sref='home'class="btn btn-block btn-default" > 
+      <i class="glyphicon glyphicon-home"></i>&nbsp;Go Back</a>
+    </div>
+  </div>
 
 
-  <h2 class="text-center">Inventory</h2>
+<h2 class="text-center">Inventory</h2>
   <h5 class="text-center">Select the Medication Name Below</h5>
 
 
@@ -28,6 +34,7 @@
   </div>
 
   <br>
+
   <div ng-if="meds.length==0" >
      <table class="table table-striped">
       <th style="visibility:hidden;"></th>
@@ -40,34 +47,40 @@
         </tr>
       </tbody>
     </table>
-
   </div>
 
   <div ng-repeat="med in meds" class="slide"  ng-hide="!isCurrentMedIndex($index)">
     <table class="table table-striped">
       <th style="visibility:hidden;"></th>
       <tbody>
-        <tr>
+        <!--<tr>
           <td><strong class="col-xs-4">Medication Name</strong> {{med.pillName}}</td>
         </tr>
-        <tr>
-          <td><strong class="col-xs-4">Inventory Slot</strong> {{med.inventorySlot}}</td>
-        </tr>
-        <tr>
-          <td><strong class="col-xs-4">Amount Remaining</strong> {{med.amount}}</td>
-        </tr>
+
           <tr>
           <td><strong class="col-xs-4">Last Dispensed</strong> {{med.lastDispensed | date:"MMM d, y h:mma"}}</td>
-        </tr>
+             </tr>
+      -->
 
         <tr>
           <td><strong class="col-xs-4">User</strong> {{med.userName}}</td>
         </tr>
 
-        <tr>
+          <tr>
+          <td><strong class="col-xs-4">Amount Remaining</strong> {{med.amount}}</td>
+        </tr>
+           <tr>
           <td><strong class="col-xs-4">Medication Dispensed per Dose</strong> {{med.dosage}}</td>
         </tr>
 
+        <tr>
+          <td><strong class="col-xs-4">Inventory Slot</strong> {{med.inventorySlot}}</td>
+        </tr>
+      
+     
+
+
+     
 
 
 
@@ -77,24 +90,33 @@
           </tr>
           <tr>
             <td style="text-align:center;">
-              <a href style="text-decoration:none;" ng-click="dispenseMed(med, $index)">
-                <span class="glyphicon glyphicon-glass"></span>
-                Dispense Now
-              </a>
+          
+               <button class="btn btn-success" ng-click="dispenseMed(med, $index)"> <span class="glyphicon glyphicon-glass"></span>  Dispense Now</button>
             </td>
           </tr>
 
           <tr>
             <td style="text-align:center;">
-              <a href style="text-decoration:none;" ng-click="deleteMed(med, $index)">
+              <button class="btn btn-warning" ng-click="deleteMed(med, $index)">
                 <span class="glyphicon glyphicon-trash"></span>
                 Delete Medication
-              </a>  
+              </button>  
+            </td>
+          </tr>
+
+          <tr>
+            <td>
+              <div class="input-group col-xs-6 col-xs-offset-3">
+                <span class="input-group-addon" id="basic-addon1"><span class="glyphicon glyphicon-plus"></span></span>
+                <input type="number" class="form-control" placeholder="Number of Pills to Insert" ng-model="m1" ng-virtual-keyboard="{kt: 'Numerico'}" aria-describedby="basic-addon1"> 
+                <span class="input-group-btn">
+                  <button class="btn btn-default" ng-click="onInsert(med,$index,m1)">Insert</button>
+                </span>
+              </div>
             </td>
           </tr>
         </tbody>
       </table>
-
     </div>
   </form>
   </div>

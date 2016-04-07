@@ -10,10 +10,9 @@ config.$inject = [
   '$cryptoProvider'
 ];
 
-function config($stateProvider, $urlRouterProvider, $cryptoProvider) {
+function config($stateProvider, $urlRouterProvider,$cryptoProvider) {
 
   $cryptoProvider.setCryptographyKey('ABCD123');
-
   // Load up our states
   $stateProvider
 
@@ -52,6 +51,12 @@ function config($stateProvider, $urlRouterProvider, $cryptoProvider) {
       url: '/addmed',
       templateUrl: 'templates/addmed.html',
       controller: 'addmedController'
+    })
+
+    .state('schedule', {
+      url: '/schedule',
+      templateUrl: 'templates/schedule.html',
+      controller: 'scheduleController'
     })
 
     .state('history', {
@@ -110,16 +115,33 @@ function config($stateProvider, $urlRouterProvider, $cryptoProvider) {
       url:'/specialinstructions',
       templateUrl:'templates/medform-specialinstructions.html'
     })
-    .state('medform.googlesignin',{
-      url:'/googlesignin',
-      templateUrl:'templates/medform-googlesignin.html'
-    })
     // Final Step is a Summary of the choices and the submit button 
     .state('medform.summary',{
       url:'/summary',
       templateUrl:'templates/medform-summary.html'
     })
+    // After completing the Medication form
+    .state('insert', 
+      {url:'/insert/:medID',
+      templateUrl: 'templates/insert.html',
+      controller: 'insertController' 
+    })
+    // A DeBug Page
+    .state('codes',{
+      url:'/codes',
+      templateUrl: 'templates/codes.html',
+      controller: 'codesController' 
+    })
+
+      // A DeBug Page
+    .state('about',{
+      url:'/about',
+      templateUrl: 'templates/about.html',
+      controller: 'aboutController' 
+    })
     ;
+
+
 
   // Declare our default state to be the home state
   $urlRouterProvider.otherwise('/');

@@ -1,0 +1,49 @@
+<br>
+<div class="row">
+  <div class="col-xs-2 col-xs-offset-1">
+    <a href ui-sref='home'class="btn btn-block btn-default" > 
+      <i class="glyphicon glyphicon-home"></i>&nbsp;Go Back</a>
+ </div>
+</div>
+
+
+<h2 class="text-center">Schedule</h2><br>
+
+<div class="container">
+  <form class="locationForm">
+  
+  
+  <br>  
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Medication Name</th>
+        <th>Dispensing Time</th>
+        <!--<th> Time Difference</th>-->
+      </tr>
+    </thead>
+    <tbody>
+      <tr ng-repeat="data in newschedule">
+
+        <td>
+          {{data.pillName}}</td>
+        <td>
+          {{data.dispensingTime| date:'h:mm a'}}</td>
+        <!--   <td>
+          {{data.timediff}}</td>
+        -->
+
+      </tr>
+      
+    </tbody>
+  </table>
+</form>
+</div>
+
+<!--<p>{{currentdate}}</p>
+
+
+<p> {{hour}}</p>
+<p>{{mynum}}</p>
+<p>{{currenttime}}</p>
+-->

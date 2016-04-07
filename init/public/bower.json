@@ -23,13 +23,9 @@
     "angular-weather": "^0.0.2",
     "angular-weather-directive": "https://github.com/shusain/angular-sh-weather.git#~0.0.2",
     "angular-google-places-autocomplete": "^0.2.7",
-    "satellizer": "^0.14.0",
-    "toastr": "^2.1.2",
-    "angular-toastr": "^1.7.0",
-    "css3-social-signin-buttons": "necolas/css3-social-signin-buttons",
-    "oauth-js": "oauthio-web#^0.5.2",
     "ngGAPI": "https://github.com/christiansmith/ngGAPI.git",
     "ng-notify": "^0.7.2",
     "angular-confirm-modal": "^1.2.3"
+
   }
 }

@@ -19,17 +19,17 @@
         </weather-icon-google>
       </div>
     
-      <h2 style="text-align: left; float:left;" ng-bind-html="weather.temp.max | temp:0:units"> </h2> 
+      <h2 style="text-align: left; float:left;" ng-bind-html="weather.temp.max | temp:0:units"> </h2>
       <h2 style="text-align: left; float:left;" >&nbsp/&nbsp</h2>
       <h3 style="text-align: left; float:left;"  ng-bind-html="weather.temp.min | temp:0:units"> </h3>
-      <h3 style="text-align: right; float:right;"  ng-repeat="weather in weather.temp.main">{{ weather }}<span ng-if="!$first"> &&nbsp </span></h3>
+      <h3 style="text-align: right; float:right;"  ng-repeat="weather in weather.temp.main"> {{ weather }}<span ng-if="!$first"> &&nbsp </span></h3>
 
       <br><br><br><br>
-
+<!--
       Sunrise: <span ng-bind-html="weather.temp.rise | date: 'hh:mm a' "></span>
 
       <span style="text-align:right; float:right;">Sunset: <span ng-bind-html="weather.temp.set | date: 'hh:mm a' "></span></span><br/>  
-
+-->
       Wind speed: <span ng-bind-html="weather.temp.wind | wind:2"></span> km/h <span ng-bind-html="weather.temp.wDirection"></span>
 
     </div>

@@ -1,0 +1,107 @@
+
+<div class="container-fluid" style = " background-color:#ffffff;">
+  <div class="jumbotron">
+  	<div class= "row">
+  	<div class="col-xs-2" >
+  		 <img class ="homePill" src="/images/pillm.png"> 
+  	</div>
+  	<div class="col-xs-8" >
+    <h1 style="text-align:center;">Auto<span style = "color:#800000">MED</span>ic</h1>
+    <p style="text-align:center;">For All Your Medical Dispensing Needs.</p> 
+</div>
+ 	<div class="col-xs-2" >
+  		 <img class ="homePill" src="/images/pillm.png"> 
+  	</div>
+  </div>
+</div>
+</div>
+
+<div class="container-fluid text-center" style = " background-color:#800000; color:#ffffff">
+  <h2>THE TEAM</h2>
+  <br>
+  <div class="row">
+    <div class="col-xs-4">
+   
+      <h4><strong>Brandon Coles</strong></h4><br>
+      <a ng-model="collapsed" ng-click="collapsed=!collapsed">
+      <img src="/images/brandon.jpg" class="img-circle" ng-if ="!collapsed">
+      <img src="/images/brandon2.jpg" class="img-circle" ng-if ="collapsed">
+  </a>
+   <div ng-show="collapsed">
+   	<br>
+   	<h4>Completing Electrical and Biomedical Engineering</h4>
+   </div>
+     
+    </div>
+    <div class="col-xs-4">
+      <h4><strong>Eric Dyer</strong></h4><br>
+      <a ng-model="collapsed" ng-click="collapsed=!collapsed">
+        <img src="/images/eric3.jpg" class="img-circle" ng-if ="!collapsed">
+      <img src="/images/eric2.jpg" class="img-circle" ng-if ="collapsed">
+  </a>
+      <div ng-show="collapsed">
+   	<br>
+   	<h4>Completing Electrical and Biomedical Engineering</h4>
+   </div>
+    </div>
+    <div class="col-xs-4">
+    	
+      <h4><strong>Shilir Gorgees</strong></h4><br>
+      <a ng-model="collapsed" ng-click="collapsed=!collapsed">
+      <img src="/images/shilir.jpg" class="img-circle">
+        </a>
+         <div ng-show="collapsed">
+   	<br>
+   	<h4>Completing Electrical and Biomedical Engineering</h4>
+   </div>
+    </div>
+  </div>
+    <div class="row">
+    <div class="col-xs-4 col-xs-offset-2">
+    	
+      <h4><strong>Maxim Poddoubnyi</strong><h4><br>
+      	<a ng-model="collapsed" ng-click="collapsed=!collapsed">
+          <img src="/images/max.jpg" class="img-circle" ng-if ="!collapsed">
+      <img src="/images/max2.bmp" class="img-circle"  ng-if ="collapsed">
+        </a>
+         <div ng-show="collapsed">
+   	<br>
+   	<h4>Completing Electrical Engineering</h4>
+   </div>
+    </div>
+    <div class="col-xs-4">
+    	
+      <h4><strong>Daniel Smieja</strong></h4><br>
+      <a ng-model="collapsed" ng-click="collapsed=!collapsed">
+      <img src="/images/dan.jpg" class="img-circle">
+        </a>
+         <div ng-show="collapsed">
+   	<br>
+   	<h4>Completing Electrical and Biomedical Engineering</h4>
+   </div>
+
+    </div>
+  </div>
+  <br>
+  <br>
+</div>
+
+
+<div class="container-fluid" style = " background-color:#ffffff">
+	<h2 style="text-align:center; color:#800000">GALLERY</h2>
+	<br>
+
+	<uib-carousel active="active" interval="myInterval" no-wrap="noWrapSlides">
+      <uib-slide ng-repeat="slide in slides track by slide.id" index="slide.id">
+        <img src="{{slide.image}}" style="margin:auto;">
+        <div class="carousel-caption">
+         
+        </div>
+      </uib-slide>
+    </uib-carousel>
+    <br>
+<br>
+<br>
+ </div>   
+
+	

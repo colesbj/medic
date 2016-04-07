@@ -1,11 +1,32 @@
-    <script src="https://apis.google.com/js/client.js?onload=checkAuth">
-    </script>
 <div class="container"><br/><br/>
 
-	<div class="col-xs-6 col-xs-offset-0" style="text-align:center;">
+	<div class = "row">
 
-		<h1>Auto<span style = "color:#b56969">MED</span>ic</h1>
-		<img class ="homePill" src="/images/pillm.png" ><br><br><br>
+	<div class="col-xs-4" style="text-align:center;">
+
+		<h1>Auto<span style = "color:#800000">MED</span>ic</h1>
+		<img class ="homePill" src="/images/pillm.png"><br><br>
+			<div style="text-align:center; background-color:#d9edf7; padding:20px; border-radius:20px;">
+	        	<h1>Next Up</h1>
+
+		    	<div ng-repeat="med in nextUp">
+		    		<p><strong> {{med.pillName}} at {{med.dispensingTime| date:'h:mm a'}}</strong></p>
+		    	</div>
+
+	    	</div>
+		</div>
+
+
+	<div class="col-xs-8">
+		<todays-weather
+		  units='Metric'
+		  custom-size="125"
+		  location="{{model.searchLocation}}"
+		  change="{{newLoc}}"
+		  use-google-images="true">
+		</todays-weather>
+
+		<p ng-model="newLoc"></p>
 
 		<form class="locationForm">
       		<div class="input-group">
@@ -15,19 +36,24 @@
     			</span>
     		</div>
     	</form>
-
-	</div>
-
-	<div class="col-xs-6"><br>
-		<todays-weather
-		  units='Metric'
-		  custom-size="125"
-		  location="{{model.searchLocation}}"
-		  change="{{newLoc}}"
-		  use-google-images="true">
-		</todays-weather>
-
-		<p ng-model="newLoc"></p><br>
     	
 	</div>
+
+	<!--<div class="col-xs-3">
+	    <div >
+	      	<div style="text-align:center; background-color:#d9edf7; padding:20px; border-radius:20px;">
+	        	<h1>Next Up</h1>
+
+		    	<div ng-repeat="med in nextUp">
+		    		<p><strong> {{med.pillName}} at {{med.dispensingTime| date:'h:mm a'}}</strong></p>
+		    	</div>
+
+	    	</div>
+		</div>
+	</div>
+-->
+<!--<p>
+{{newschedule}}
+</p>-->
+</div>
 </div>

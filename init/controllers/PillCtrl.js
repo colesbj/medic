@@ -22,7 +22,6 @@ exports.createPill= function(req, res, next) {
 	newPill.userName = req.body.userName ;
 	newPill.notifyNumber = req.body.notifyNumber; 
 
-
 	// save the new medication in database
 	newPill.save(function(err,savedPill){
 		// if you cannot handle this go to the next handler

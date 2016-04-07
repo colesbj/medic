@@ -5,20 +5,29 @@ homeController.$inject = [
 	'$scope',
 	'$interval',
   '_med',
-  'meds',
-  '$window'
+  'meds'
+	
 ];
 
-// calendar scope https://www.googleapis.com/auth/calendar  
-
-// client ID = '661800350617-2qr5t7mralm37q3gqopbapubk5r81er8.apps.googleusercontent.com'
-// client secret = jxiqEYMDx3_B9GI9szDBCNUr
-
-
-
-function homeController($scope, $interval, _med, meds, $window){
+function homeController($scope, $interval, _med, meds){
 
   $scope.meds = meds.data;
+
+  $scope.datenow = new Date();
+
+  $scope.thetime= $scope.datenow.getHours()*3600+$scope.datenow.getMinutes()*60+$scope.datenow.getSeconds();
+  $scope.nextUp =[];
+
+  $scope.newschedule.forEach(function(elem){
+      //console.log(elem); 
+      //elem.timediff=$scope.currenttime-elem.mytime;
+
+      if($scope.thetime-elem.mytime<0){
+        $scope.nextUp.push(elem);
+        
+      }
+
+    }); 
 
 
 
@@ -59,7 +68,6 @@ function homeController($scope, $interval, _med, meds, $window){
     $scope.$on('$destroy', function() {
       $scope.stop();
     });
-
 
 	$scope.newLoc = 1;
 	$scope.onPlaceChanged = onPlaceChanged
