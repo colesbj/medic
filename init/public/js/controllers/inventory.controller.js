@@ -40,13 +40,7 @@ function inventoryController($scope, _med, $state,mySocket, $confirm, meds) {
 
   function deleteMed(med, index) {
 
-
     $scope.currentIndex = --$scope.currentIndex ;
-
-    mySocket.emit('delete',
-        {
-          inventory:$scope.meds[index].inventorySlot, 
-      });
 
     $scope.deleteInfo = med;
     //console.log($scope.deleteInfo)
@@ -55,6 +49,10 @@ function inventoryController($scope, _med, $state,mySocket, $confirm, meds) {
         handleAuthClick(event);
       });
 
+    mySocket.emit('delete',
+        {
+          inventory:$scope.meds[index].inventorySlot, 
+      });
 
     _med.delete(med._id)
       .then(function() {
