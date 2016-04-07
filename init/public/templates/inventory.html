@@ -28,6 +28,17 @@
   </div>
 
   <br>
+  <div ng-if="meds.length==0" >
+     <table class="table table-striped">
+      <th style="visibility:hidden;"></th>
+      <tbody>
+        <tr>
+          <td style="text-align: center;"> <span class="glyphicon glyphicon-info-sign"></span> You have no medications in your device</td>
+        </tr>
+      </tbody>
+    </table>
+
+  </div>
 
   <div ng-repeat="med in meds" class="slide"  ng-hide="!isCurrentMedIndex($index)">
     <table class="table table-striped">
