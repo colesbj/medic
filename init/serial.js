@@ -70,6 +70,16 @@ io.on('connection',function(socket){
          console.log(data.code+"\n");
     });
 
+     socket.on('Vegas', function (data){
+        SerialPort.write(data.Erk+"\n"); 
+         console.log(data.Erk+"\n");
+    });
+
+     socket.on('lVegas', function (data){
+        SerialPort.write(data.Erk+"\n"); 
+         console.log(data.Erk+"\n");
+    });
+
         //Handles data sent ON COM port
     SerialPort.on("data", function (data) {
       //sys.puts("here: "+data);

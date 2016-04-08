@@ -11,6 +11,8 @@ homeController.$inject = [
 
 function homeController($scope, $interval, _med, meds){
 
+  $scope.collapsed = true; 
+
   $scope.meds = meds.data;
 
   $scope.datenow = new Date();
@@ -28,6 +30,24 @@ function homeController($scope, $interval, _med, meds){
       }
 
     }); 
+
+  $scope.goToVegas = goToVegas ;
+  function goToVegas(){
+    $scope.collapsed = false ;
+    mySocket.emit('Vegas',
+      {
+        Erk:69
+    });
+  }
+
+  $scope.leaveVegas = leaveVegas
+  function leaveVegas(){
+    $scope.collapsed = true ;
+    mySocket.emit('lVegas',
+      {
+        Erk:70
+    });
+  }
 
 
 

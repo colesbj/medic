@@ -1,44 +1,51 @@
 <div class="container"><br/><br/>
 
-	<div class = "row">
+	<div class = "row" ng-show="collapsed">
+		<div class="col-xs-4" style="text-align:center;">
 
-	<div class="col-xs-4" style="text-align:center;">
+			<h1>Auto<span style = "color:#800000">MED</span>ic</h1>
+			<a >
+				<img class ="homePill" src="/images/pillm.png" ng-click="goToVegas()"><br><br>
+	        </a>
 
-		<h1>Auto<span style = "color:#800000">MED</span>ic</h1>
-		<img class ="homePill" src="/images/pillm.png"><br><br>
-			<div style="text-align:center; background-color:#d9edf7; padding:20px; border-radius:20px;">
+			<div class="weatherForm">
 	        	<h1>Next Up</h1>
 
 		    	<div ng-repeat="med in nextUp">
 		    		<p><strong> {{med.pillName}} at {{med.dispensingTime| date:'h:mm a'}}</strong></p>
 		    	</div>
 
+		    	<div ng-if="nextUp.length==0">
+		    		<br>
+		    		<h4>No more medications today</h4>
+		    	</div>
+
+		    	<br>
 	    	</div>
 		</div>
 
 
-	<div class="col-xs-8">
-		<todays-weather
-		  units='Metric'
-		  custom-size="125"
-		  location="{{model.searchLocation}}"
-		  change="{{newLoc}}"
-		  use-google-images="true">
-		</todays-weather>
+		<div class="col-xs-8">
+			<todays-weather
+			  units='Metric'
+			  custom-size="125"
+			  location="{{model.searchLocation}}"
+			  change="{{newLoc}}"
+			  use-google-images="true">
+			</todays-weather>
 
-		<p ng-model="newLoc"></p>
+			<p ng-model="newLoc"></p>
 
-		<form class="locationForm">
-      		<div class="input-group">
-    			<input id="pac-input" class="form-control"  type="text" placeholder="Search for a location" ng-model="model.searchLocation" ng-virtual-keyboard="{forcePosition:'top'}"/>
-    			<span class="input-group-btn">
-    				<button type="button" class="form-control" ng-click="newLocation()">Change Location</button> 
-    			</span>
-    		</div>
-    	</form>
-    	
-	</div>
-
+			<form class="locationForm">
+	      		<div class="input-group">
+	    			<input id="pac-input" class="form-control"  type="text" placeholder="Search for a location" ng-model="model.searchLocation" ng-virtual-keyboard="{forcePosition:'top'}"/>
+	    			<span class="input-group-btn">
+	    				<button type="button" class="form-control" ng-click="newLocation()">Change Location</button> 
+	    			</span>
+	    		</div>
+	    	</form>
+	    	
+		</div>
 	<!--<div class="col-xs-3">
 	    <div >
 	      	<div style="text-align:center; background-color:#d9edf7; padding:20px; border-radius:20px;">
@@ -55,5 +62,18 @@
 <!--<p>
 {{newschedule}}
 </p>-->
-</div>
+	</div>
+
+
+	<div ng-show="!collapsed">
+
+		<button class="btn btn-danger btn-lg btn-block" ng-click="leaveVegas()" >V3g4s M0dE: DANGER!!</button><br>
+
+		<img style="height: 217px;" src="/images/giphy.gif">
+		<img style="height: 217px;" src="/images/owen.gif">
+		<img style="height: 202px;" src="/images/women.gif">
+		<img style="height: 202px;" src="/images/shark.gif">
+
+	</div>
+
 </div>
